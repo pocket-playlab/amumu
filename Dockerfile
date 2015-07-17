@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM google/golang-runtime
 
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y \
@@ -7,3 +7,7 @@ RUN apt-get install -y \
     mysql-client \
     vim \
     redis-tools
+
+RUN go get github.com/rakyll/boom
+
+CMD ["bash"]
