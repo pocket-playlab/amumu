@@ -3,8 +3,8 @@ FROM debian:jessie
 ENV GOROOT /goroot
 ENV GOPATH /gopath
 ENV PATH $PATH:$GOROOT/bin:$GOPATH/bin
-
-RUN apt-get update && apt-get upgrade -y
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10 && echo "deb http://repo.mongodb.org/apt/debian wheezy/mongodb-org/3.0 main" | tee /etc/apt/sources.list.d/mongodb-org-3.0.list
+RUN apt-get update && apt-get upgrade -y && 
 RUN apt-get install -y \
     curl \
     build-essential \
