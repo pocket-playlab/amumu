@@ -21,7 +21,7 @@ RUN apt-get install -y \
     mongodb-org-shell \
     mongodb-org-tools
 
-RUN mkdir /goroot && curl https://storage.googleapis.com/golang/go1.4.2.linux-amd64.tar.gz | tar xvzf - -C /goroot --strip-components=1
+RUN mkdir /goroot && curl https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz | tar xvzf - -C /goroot --strip-components=1
 RUN mkdir /gopath
 
 RUN go get github.com/rakyll/boom
