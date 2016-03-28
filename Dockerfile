@@ -1,5 +1,7 @@
 FROM debian:jessie
 
+ENV GOLANG_VERSION go1.6
+ENV GOLANG_DOWNLOAD_URL https://storage.googleapis.com/golang/$GOLANG_VERSION.linux-amd64.tar.gz
 ENV GOROOT /goroot
 ENV GOPATH /gopath
 ENV PATH $PATH:$GOROOT/bin:$GOPATH/bin
@@ -21,7 +23,7 @@ RUN apt-get install -y \
     mongodb-org-shell \
     mongodb-org-tools
 
-RUN mkdir /goroot && curl https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz | tar xvzf - -C /goroot --strip-components=1
+RUN mkdir /goroot && curl $GOLANG_DOWNLOAD_URL | tar xvzf - -C /goroot --strip-components=1
 RUN mkdir /gopath
 
 RUN go get github.com/rakyll/boom
